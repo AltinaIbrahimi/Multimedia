@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Memory Game</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <div id="login">
+            <div v-if="logIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="content-center">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h1 id="logo">Mem<i class="fa fa-lightbulb-o light"></i>ry <br>Game </h1>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="volume">
+                                        <div id="red"></div>
+                                        <i class="fa fa-volume-up volume-icon" onclick="onoff()"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="button-menu">
+                            	<input placeholder="Username" v-model="username">
+                                <button id="start-btn" v-on:click="login">Start</button>
+                                <br>
+                                <button id="about-btn" onClick="showHideDiv('divMsg')">About</button>
+                                <div id="memory">
+                                    <div id="divMsg" style="display: none">
+                                        <p>Matching games are games that require players to match similar elements. As the name implies, participants need to find a match for a word, picture, or card. For example, students place 30 word cards; composed of 15 pairs, face down in random order. Each person turns over two cards at a time, with the goal of turning over a matching pair, by using their memory.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-else>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="memory-game1">
+
+                            <div class="memory-card" data-framework="AH">
+                                <img class="front-face" src="img/AH.PNG" alt="A-H" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+                            <div class="memory-card" data-framework="AH">
+                                <img class="front-face" src="img/AH.PNG" alt="A-H" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+
+                            <div class="memory-card" data-framework="KH">
+                                <img class="front-face" src="img/KH.PNG" alt="Vue" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+                            <div class="memory-card" data-framework="KH">
+                                <img class="front-face" src="img/KH.PNG" alt="Vue" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+
+                            <div class="memory-card" data-framework="QH">
+                                <img class="front-face" src="img/QH.PNG" alt="Q-H" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+                            <div class="memory-card" data-framework="QH">
+                                <img class="front-face" src="img/QH.PNG" alt="Q-H" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+
+                            <div class="memory-card" data-framework="JH">
+                                <img class="front-face" src="img/JH.PNG" alt="J-H" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+                            <div class="memory-card" data-framework="JH">
+                                <img class="front-face" src="img/JH.PNG" alt="J-H" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+
+                            <div class="memory-card" data-framework="10H">
+                                <img class="front-face" src="img/10H.PNG" alt="10-H" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+                            <div class="memory-card" data-framework="10H">
+                                <img class="front-face" src="img/10H.PNG" alt="10-H" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+
+                            <div class="memory-card" data-framework="9-H">
+                                <img class="front-face" src="img/9H.PNG" alt="9-H" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+                            <div class="memory-card" data-framework="9-H">
+                                <img class="front-face" src="img/9H.PNG" alt="9-H" />
+                                <img class="back-face" src="img/background.PNG" alt="background" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contentP">
+
+                            <p style="color: #fff;">Hello :</p>
+                            <p id="username" style="color: #fff;">{{username}}</p>
+                            <p style="color: #fff;">POINTS</p>
+                            <p id="points" style="color: #fff;">0</p>
+                            <p style="color: #fff;">Streak</p>
+                            <p id="streak" style="color: #fff;">0</p>
+                            <p style="color: #fff;">Total Attemps</p>
+                            <p id="attemps" style="color: #fff;">0</p>
+                            <a href="index.html" style="color: #fff;">Start NEW GAME </a>
+                            <br>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div id="test">
+                            <p id="levelCopmlete" style="font-size: 100px;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
